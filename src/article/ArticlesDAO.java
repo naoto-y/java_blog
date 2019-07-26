@@ -22,8 +22,8 @@ public class ArticlesDAO {
 		try {
 			conn = DriverManager.getConnection(
 				System.getenv("DB_HOST") + "/blog_sys",
-				System.getenv("DB_USER"),
-				System.getenv("DB_PASS")
+				"tomcat",
+				"2Bbbbbb\""
 			);
 		} catch(SQLException e) {
 			e.printStackTrace();
