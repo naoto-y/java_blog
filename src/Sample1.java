@@ -13,7 +13,7 @@ public class Sample1 extends HttpServlet {
   public void doGet(HttpServletRequest request, HttpServletResponse response)
     throws IOException, ServletException{
 
-    response.setContentType("text/html; charset=Shift_JIS");
+    response.setContentType("text/html; charset=utf-8");
     PrintWriter out = response.getWriter();
 
     out.println("<html>");
@@ -26,8 +26,8 @@ public class Sample1 extends HttpServlet {
 
     Connection conn = null;
     String url =  System.getenv("DB_HOST") + "/blog_sys";
-    String user = System.getenv("DB_USER");
-    String password = System.getenv("DB_PASS");
+    String user = "tomcat";
+    String password = "2Bbbbbb\"";
 
     try {
       Class.forName(System.getenv("DB_DRIVER"));
