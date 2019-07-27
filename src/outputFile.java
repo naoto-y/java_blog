@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 public class outputFile extends HttpServlet {
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
 		throws ServletException, IOException {
 			response.setContentType("text/html; charaset=UTF-8");
 			request.setCharacterEncoding("UTF-8");
