@@ -13,6 +13,6 @@
 	<p><textarea name="item1"></textarea></p>
 	<p><input type="submit" value="作成"></p>
 </form>
-<p>
+<p><% out.println(System.getProperty("os.name")); %></p>
 </body>
 </html>
