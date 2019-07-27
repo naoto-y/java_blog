@@ -8,9 +8,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import article.ArticlesDAO;
+
 public class outputFile extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {
+
+            ArticlesDAO articlesdao = new ArticlesDAO();
+
             response.setContentType("text/html; charaset=UTF-8");
             request.setCharacterEncoding("UTF-8");
 
@@ -32,6 +37,7 @@ public class outputFile extends HttpServlet {
                 File file = new File(filename);
                 file.createNewFile();
                 FileWriter filewriter = new FileWriter(file);
+                articlesdao.insertArticle(1, "title", filename);
 
                 filewriter.write(item1);
 
