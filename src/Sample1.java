@@ -25,12 +25,26 @@ public class Sample1 extends HttpServlet {
     out.println("<p>");
 
     Connection conn = null;
-    String url =  System.getenv("DB_HOST") + "/blog_sys";
+
+    String url = null;
     String user = "tomcat";
     String password = "2Bbbbbb\"";
+    String DB_HOST = null;
+    String DB_DRIVER = null;
+
+    String osname = System.getProperty("os.name");
+    if(osname.indexOf("Windows")>=0) {
+        DB_HOST = "jdbc:mariadb://192.168.179.7";
+        DB_DRIVER = "org.mariadb.jdbc.Driver";
+    } else if(osname.indexOf("Linux")>=0) {
+        DB_HOST = "jdbc:mysql://localhost";
+        DB_DRIVER = "com.mysql.jdbc.Driver";
+    }
+
+    url = DB_HOST + "/blog_sys";
 
     try {
-      Class.forName(System.getenv("DB_DRIVER"));
+      Class.forName(DB_DRIVER);
       out.println("ドライバのロードに成功しました<br>");
 
       conn = DriverManager.getConnection(url, user, password);
