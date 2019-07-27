@@ -1,4 +1,5 @@
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -16,17 +17,25 @@ public class outputFile extends HttpServlet {
             String item1 = request.getParameter("item1");
 
             long timepath = System.currentTimeMillis();
-            String filename = "./Data/"+String.valueOf(timepath)+".txt";
+            String filedir = null;
+
+            String osname = System.getProperty("os.name");
+            if(osname.indexOf("Windows")>=0) {
+                filedir = "G:\\tmp\\";
+            } else if(osname.indexOf("Linux")>=0) {
+                filedir = "/usr/tomcat9/Data/";
+            }
+
+            String filename = filedir + String.valueOf(timepath) + ".txt";
 
             try {
-                System.out.println(filename);
                 File file = new File(filename);
                 file.createNewFile();
-//                FileWriter filewriter = new FileWriter(file);
+                FileWriter filewriter = new FileWriter(file);
 
-//                filewriter.write(item1);
+                filewriter.write(item1);
 
-//                filewriter.close();
+                filewriter.close();
             } catch(IOException e) {
                 System.out.println("失敗");
                 System.out.println(e);
