@@ -19,6 +19,7 @@ public class outputFile extends HttpServlet {
             response.setContentType("text/html; charaset=UTF-8");
             request.setCharacterEncoding("UTF-8");
 
+            String title =request.getParameter("title");
             String item1 = request.getParameter("item1");
 
             long timepath = System.currentTimeMillis();
@@ -37,7 +38,7 @@ public class outputFile extends HttpServlet {
                 File file = new File(filename);
                 file.createNewFile();
                 FileWriter filewriter = new FileWriter(file);
-                articlesdao.insertArticle(1, "title", filename);
+                articlesdao.insertArticle(1, title, filename);
 
                 filewriter.write(item1);
 
