@@ -1,37 +1,17 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:web="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd http://xmlns.jcp.org/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.4">
   <servlet>
-    <servlet-name>hello</servlet-name>
-    <servlet-class>HelloWorld</servlet-class>
-  </servlet>
-  <servlet>
-    <servlet-name>getParam</servlet-name>
-    <servlet-class>ServletGetParameters</servlet-class>
-  </servlet>
-  <servlet>
     <servlet-name>outputFile</servlet-name>
     <servlet-class>outputFile</servlet-class>
   </servlet>
   <servlet>
-    <servlet-name>sample1</servlet-name>
-    <servlet-class>Sample1</servlet-class>
+    <servlet-name>articlesList</servlet-name>
+    <servlet-class>ArticlesList</servlet-class>
   </servlet>
   <servlet>
-    <servlet-name>articleList</servlet-name>
-    <servlet-class>ArticleList</servlet-class>
+    <servlet-name>article</servlet-name>
+    <servlet-class>Article</servlet-class>
   </servlet>
-  <servlet-mapping>
-    <servlet-name>hello</servlet-name>
-    <url-pattern>
-        /servlet/hello
-    </url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>getParam</servlet-name>
-    <url-pattern>
-        /servlet/ServletGetParameters
-    </url-pattern>
-  </servlet-mapping>
   <servlet-mapping>
     <servlet-name>outputFile</servlet-name>
     <url-pattern>
@@ -39,13 +19,13 @@
     </url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-    <servlet-name>sample1</servlet-name>
-    <url-pattern>/servlet/sample1</url-pattern>
+    <servlet-name>articlesList</servlet-name>
+    <url-pattern>
+        /servlet/articlesList
+    </url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-    <servlet-name>articleList</servlet-name>
-    <url-pattern>
-        /servlet/articleList
-    </url-pattern>
+    <servlet-name>article</servlet-name>
+    <url-pattern>/servlet/article</url-pattern>
   </servlet-mapping>
 </web-app>

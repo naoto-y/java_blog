@@ -27,7 +27,7 @@ public class outputFile extends HttpServlet {
 
             String osname = System.getProperty("os.name");
             if(osname.indexOf("Windows")>=0) {
-                filedir = "G:\\tmp\\";
+                filedir = "G:" + File.separator +"tmp" + File.separator;
             } else if(osname.indexOf("Linux")>=0) {
                 filedir = "/usr/tomcat9/Data/";
             }
