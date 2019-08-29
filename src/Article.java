@@ -34,7 +34,6 @@ public class Article extends HttpServlet {
 
             for(int i = 0; i < htmlData.size(); i++) {
                 out.print(htmlData.get(i));
-                out.println("<br>");
             }
 
             out.println("</body>");
