@@ -20,7 +20,7 @@ public class ArticlesDAO {
 	        DB_HOST = "jdbc:mariadb://192.168.179.7";
 	        DB_DRIVER = "org.mariadb.jdbc.Driver";
 	    } else if(osname.indexOf("Linux")>=0) {
-	        DB_HOST = "jdbc:mysql://localhost:3306";
+	        DB_HOST = "jdbc:mysql://localhost";
 	        DB_DRIVER = "com.mysql.jdbc.Driver";
 	    }
 
@@ -32,7 +32,7 @@ public class ArticlesDAO {
 
 		try {
 			conn = DriverManager.getConnection(
-				DB_HOST + "/blog_sys?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC",
+				DB_HOST + "/blog_sys",
 				"tomcat",
 				"2Bbbbbb\""
 			);
@@ -63,6 +63,10 @@ public class ArticlesDAO {
 				dto.setModify(rset.getDate("modify"));
 				articlesDTO.add(dto);
 			}
+
+			stmt.close();
+			conn.close();
+
 		} catch(SQLException e) {
 			e.printStackTrace();
 		}
