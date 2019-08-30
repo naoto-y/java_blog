@@ -20,7 +20,7 @@ public class ArticlesDAO {
 	        DB_HOST = "jdbc:mariadb://192.168.179.7";
 	        DB_DRIVER = "org.mariadb.jdbc.Driver";
 	    } else if(osname.indexOf("Linux")>=0) {
-	        DB_HOST = "jdbc:mysql://localhost";
+	        DB_HOST = "jdbc:mysql://localhost:3306";
 	        DB_DRIVER = "com.mysql.jdbc.Driver";
 	    }
 
