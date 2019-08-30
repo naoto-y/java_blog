@@ -9,11 +9,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ArticlesDAO {
-    public void main(String[] args) {
-        ArticlesDTO find = findById(1);
-        System.out.println(find);
-    }
-
 	// db接続共通メソッド
 	public Connection DBConnection() {
 		Connection conn = null;
