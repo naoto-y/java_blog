@@ -32,7 +32,7 @@ public class ArticlesDAO {
 
 		try {
 			conn = DriverManager.getConnection(
-				DB_HOST + "/blog_sys",
+				DB_HOST + "/blog_sys?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC",
 				"tomcat",
 				"2Bbbbbb\""
 			);
