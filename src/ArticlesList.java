@@ -29,9 +29,9 @@ public class ArticlesList extends HttpServlet {
             out.println(articlesdao.countAll());
             for(int n = 0; n < articles.size(); n++) {
                 out.println("<p>");
-//                out.println("<a href=\"./article?id=" + articles.get(n).getId() + "\">");
+                out.println("<a href=\"./article?id=" + articles.get(n).getId() + "\">");
                 out.println(articles.get(n).getTitle());
-//                out.println("</a>");
+                out.println("</a>");
                 out.println("</p>");
             }
 
