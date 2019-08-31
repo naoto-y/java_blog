@@ -1,6 +1,7 @@
 package article;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -72,8 +73,8 @@ public class ArticlesDAO {
 		return articlesDTO;
 	}
 
-	public int countAll() {
-	    int count = 0;
+	public List<Date> countAll() {
+	    List<Date> datelist = new ArrayList<>();
 
 	    try(Connection conn = this.DBConnection()){
 	        Statement stmt = conn.createStatement();
@@ -81,13 +82,13 @@ public class ArticlesDAO {
 	        ResultSet rset = stmt.executeQuery(sql);
 
 	        while(rset.next()) {
-	            ++count;
+	            datelist.add(rset.getDate("upload"));
 	        }
 	    } catch(SQLException e) {
 	        e.printStackTrace();
 	    }
 
-	    return count;
+	    return datelist;
 	}
 
 	public ArticlesDTO findById(int id) {
