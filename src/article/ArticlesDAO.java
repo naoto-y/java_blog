@@ -55,12 +55,12 @@ public class ArticlesDAO {
 			// クエリ結果をdtoオブジェクトの配列に格納
 			while(rset.next()) {
 				ArticlesDTO dto = new ArticlesDTO();
-				dto.setId(rset.getInt("id"));
-				dto.setUser_id(rset.getInt("user_id"));
+//				dto.setId(rset.getInt("id"));
+//				dto.setUser_id(rset.getInt("user_id"));
 				dto.setTitle(rset.getString("title"));
-				dto.setArticle_path(rset.getString("article_path"));
-				dto.setUpload(rset.getDate("upload"));
-				dto.setModify(rset.getDate("modify"));
+//				dto.setArticle_path(rset.getString("article_path"));
+//				dto.setUpload(rset.getDate("upload"));
+//				dto.setModify(rset.getDate("modify"));
 				articlesDTO.add(dto);
 			}
 		} catch(SQLException e) {
