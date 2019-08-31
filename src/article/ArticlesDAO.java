@@ -61,7 +61,6 @@ public class ArticlesDAO {
 				dto.setTitle(rset.getString("title"));
 				dto.setArticle_path(rset.getString("article_path"));
 //				dto.setUpload(rset.getDate("upload"));    //getDate("upload")が犯人
-				dto.setUpload(rset.getDate("modify"));
 				dto.setModify(rset.getDate("modify"));
 				articlesDTO.add(dto);
 			}
