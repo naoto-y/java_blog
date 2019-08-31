@@ -1,6 +1,7 @@
 package article;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -60,7 +61,8 @@ public class ArticlesDAO {
 				dto.setTitle(rset.getString("title"));
 				dto.setArticle_path(rset.getString("article_path"));
 //				dto.setUpload(rset.getDate("upload"));    //こいつが犯人
-				rset.getDate("upload");
+//				rset.getDate("upload");
+				dto.setUpload(new Date(System.currentTimeMillis()));
 				dto.setModify(rset.getDate("modify"));
 				articlesDTO.add(dto);
 			}
