@@ -139,9 +139,10 @@ public class ArticlesDAO {
 	public void insertArticle(int user_id, String title, String path) {
 		try(Connection conn = this.DBConnection()) {
 			Statement stmt = conn.createStatement();
-//			String sql = "INSERT INTO article_list VALUES (null," + user_id + ",0,'" + title + "','" + path + "',0,now(),now())";
-			String sql = "INSERT INTO article_list VALUES (null,1,0,'title','path',0)";
+			String sql = "INSERT INTO article_list VALUES (null," + user_id + ",0,'" + title + "','" + path + "',0,now(),now())";
 			stmt.executeQuery(sql);
+			stmt.close();
+			conn.commit();
 		} catch(SQLException e) {
 			e.printStackTrace();
 		}
