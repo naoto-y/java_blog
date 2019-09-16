@@ -33,12 +33,14 @@ public class outputFile extends HttpServlet {
             }
 
             String filename = filedir + String.valueOf(timepath) + ".txt";
+            String sql = null;
 
             try {
                 File file = new File(filename);
                 file.createNewFile();
                 FileWriter filewriter = new FileWriter(file);
                 articlesdao.insertArticle(1, title, filename);
+                sql = "INSERT INTO article_list VALUES (null," + 1 + ",0,'" + title + "','" + filename + "',0,now(),now())";
 
                 filewriter.write(item1);
 
@@ -51,6 +53,7 @@ public class outputFile extends HttpServlet {
             PrintWriter out = response.getWriter();
             out.println("<html><head></head><body>");
             out.println("<p>"+ filename +"</p>");
+            out.println("<p>"+ sql + "</p>");
             out.println("</body></html>");
         }
 }

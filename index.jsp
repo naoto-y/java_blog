@@ -14,5 +14,6 @@
 	<p><textarea name="item1"></textarea></p>
 	<p><input type="submit" value="作成"></p>
 </form>
+<a href="./servlet/articlesList">記事一覧</a>
 </body>
 </html>
