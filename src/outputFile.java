@@ -46,8 +46,11 @@ public class outputFile extends HttpServlet {
 
                 filewriter.close();
             } catch(IOException e) {
+                PrintWriter errorPW = response.getWriter();
                 System.out.println("失敗");
                 System.out.println(e);
+                errorPW.println(e);
+                errorPW.close();
             }
 
             PrintWriter out = response.getWriter();
