@@ -16,7 +16,7 @@ public class outputFile extends HttpServlet {
 
             ArticlesDAO articlesdao = new ArticlesDAO();
 
-            response.setContentType("text/html; charaset=UTF-8");
+            response.setContentType("text/html; charset=UTF-8");
             request.setCharacterEncoding("UTF-8");
 
             String title =request.getParameter("title");
@@ -52,8 +52,12 @@ public class outputFile extends HttpServlet {
             }
 
             PrintWriter out = response.getWriter();
-            out.println("<html><head></head><body>");
-            out.println("<p>"+ filename +"</p>");
+            out.println("<html><head>");
+            out.println("<meta charset=\"utf-8\">");
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<p>登録されました</p>");
+            out.println("<a href=\"./articlesList\">記事一覧へ</a>");
             out.println("</body></html>");
         }
 }
