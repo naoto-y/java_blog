@@ -40,7 +40,8 @@ public class outputFile extends HttpServlet {
                 file.createNewFile();
                 FileWriter filewriter = new FileWriter(file);
                 articlesdao.insertArticle(1, title, filename);
-                sql = "INSERT INTO article_list VALUES (null," + 1 + ",0,'" + title + "','" + filename + "',0)";
+//                sql = "INSERT INTO article_list VALUES (null," + 1 + ",0,'" + title + "','" + filename + "',0)";
+                sql = "INSERT INTO article_list VALUES (null)";
 
                 filewriter.write(item1);
 
