@@ -36,6 +36,7 @@ public class Article extends HttpServlet {
                 out.print(htmlData.get(i));
             }
 
+            out.println("<a href=\"./articlesList\">記事一覧に戻る</a>");
             out.println("</body>");
             out.println("</html>");
             out.close();
