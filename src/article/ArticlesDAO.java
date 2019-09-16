@@ -141,7 +141,7 @@ public class ArticlesDAO {
 		    Connection conn = this.DBConnection();
 			Statement stmt = conn.createStatement();
 			String sql = "INSERT INTO article_list VALUES (null," + user_id + ",0,'" + title + "','" + path + "',0,now(),now())";
-			stmt.executeUpdate(sql);
+			stmt.executeUpdate(sql); //insert句の場合はexecuteUpdateを使用しないといけない
 			stmt.close();
 			conn.commit();
 		} catch(SQLException e) {

@@ -9,7 +9,7 @@
 </head>
 <body>
 <p>ファイル出力テスト</p>
-<form action="./servlet/outputFile" method="get">
+<form action="./servlet/outputFile" method="post">
     <p><input name="title" placeholder="タイトルを入力"></p>
 	<p><textarea name="item1"></textarea></p>
 	<p><input type="submit" value="作成"></p>
