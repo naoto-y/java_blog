@@ -13,15 +13,9 @@
     <servlet-class>Article</servlet-class>
   </servlet>
   <servlet>
-    <servlet-name>sample1</servlet-name>
-    <servlet-class>Sample1</servlet-class>
+    <servlet-name>addComment</servlet-name>
+    <servlet-class>addComment</servlet-class>
   </servlet>
-  <servlet-mapping>
-    <servlet-name>sample1</servlet-name>
-    <url-pattern>
-        /servlet/sample1
-    </url-pattern>
-  </servlet-mapping>
   <servlet-mapping>
     <servlet-name>outputFile</servlet-name>
     <url-pattern>
@@ -37,5 +31,11 @@
   <servlet-mapping>
     <servlet-name>article</servlet-name>
     <url-pattern>/servlet/article</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>addComment</servlet-name>
+    <url-pattern>
+        /servlet/addComment
+    </url-pattern>
   </servlet-mapping>
 </web-app>

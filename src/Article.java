@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import article.ArticlesDAO;
 import article.ArticlesDTO;
+import comment.CommentsDAO;
+import comment.CommentsDTO;
 import lib.MarkDownRender;
 
 public class Article extends HttpServlet {
@@ -24,6 +26,9 @@ public class Article extends HttpServlet {
             MarkDownRender render = new MarkDownRender();
             List<String>htmlData = render.rendering(articlesdto.getArticle_path());
 
+            CommentsDAO commentsdao = new CommentsDAO();
+            List<CommentsDTO> commentsdto = commentsdao.findByAtrticleId(articleId);
+
             PrintWriter out = response.getWriter();
             out.println("<html>");
             out.println("<head>");
@@ -31,12 +36,37 @@ public class Article extends HttpServlet {
             out.println(articlesdto.getTitle());
             out.println("</title>");
             out.println("<body>");
+            out.println("<div class=\"article\">");
 
             for(int i = 0; i < htmlData.size(); i++) {
                 out.print(htmlData.get(i));
             }
+            out.println("</div>");
 
-            out.println("<a href=\"./articlesList\">記事一覧に戻る</a>");
+            out.println("<div class=\"commentList\">");
+            for(int n = 0; n < commentsdto.size(); n++) {
+                out.println("<div>");
+                out.println("<hr><p>" + (n + 1) +"</p>");
+                out.println("<p class=\"comment\">");
+                out.println(commentsdto.get(n).getComment());
+                out.println("</p>");
+                out.println("<p class=\"user\">");
+                out.println(commentsdto.get(n).getUser_id());
+                out.println("</p>");
+                out.println("</div>");;
+            }
+            out.println("</div>");
+
+            out.println("<div class=\"commentAdd\">");
+            out.println("<hr><p>コメントする</p>");
+            out.println("<form action=\"./addComment\" method=\"post\">");
+            out.println("<input type=\"hidden\"\" name=\"article_id\" value=\"" + articleId + "\">");
+            out.println("<p><input type=\"text\" name=\"title\" placeholder=\"タイトル\"/></p>");
+            out.println("<p><textarea name=\"comment\"></textarea></p>");
+            out.println("<input type=\"submit\" value=\"投稿\">");
+            out.println("</form></div>");
+
+            out.println("<p><a href=\"./articlesList\">記事一覧に戻る</a></p>");
             out.println("</body>");
             out.println("</html>");
             out.close();
