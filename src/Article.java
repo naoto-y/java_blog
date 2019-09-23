@@ -48,6 +48,14 @@ public class Article extends HttpServlet {
             for(int n = 0; n < commentsdto.size(); n++) {
                 out.println("<div>");
                 out.println("<hr><p>" + (n + 1) +"</p>");
+                out.println("<p class=\"title\">");
+                out.println(commentsdto.get(n).getTitle());
+                if(commentsdto.get(n).getTitle() == "null") {
+                    out.println("無題");
+                } else {
+                    out.println(commentsdto.get(n).getTitle());
+                }
+                out.println("</p>");
                 out.println("<p class=\"comment\">");
                 out.println(commentsdto.get(n).getComment());
                 out.println("</p>");
