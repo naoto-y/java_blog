@@ -33,6 +33,7 @@ public class Article extends HttpServlet {
             out.println("<html>");
             out.println("<head>");
             out.println("<title>");
+            out.println("<meta charset=\"utf-8\">");
             out.println(articlesdto.getTitle());
             out.println("</title>");
             out.println("<body>");
