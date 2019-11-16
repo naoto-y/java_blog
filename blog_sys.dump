@@ -1,0 +1,87 @@
+-- MySQL dump 10.16  Distrib 10.1.38-MariaDB, for debian-linux-gnueabihf (armv7l)
+--
+-- Host: localhost    Database: blog_sys
+-- ------------------------------------------------------
+-- Server version	10.1.38-MariaDB-0+deb9u1
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `article_list`
+--
+
+DROP TABLE IF EXISTS `article_list`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `article_list` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) DEFAULT NULL,
+  `open_range` int(11) DEFAULT NULL,
+  `title` varchar(255) DEFAULT NULL,
+  `article_path` varchar(255) DEFAULT NULL,
+  `delete_flag` int(11) DEFAULT NULL,
+  `upload` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `modify` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `article_list`
+--
+
+LOCK TABLES `article_list` WRITE;
+/*!40000 ALTER TABLE `article_list` DISABLE KEYS */;
+INSERT INTO `article_list` VALUES (1,1,0,'test','',0,'0000-00-00 00:00:00','0000-00-00 00:00:00'),(2,1,0,'test2','',0,'2019-07-15 16:09:51','2019-07-15 16:09:51'),(3,1,0,'test3','',0,'2019-07-16 00:30:28','2019-07-16 00:30:28'),(4,1,0,'test4','file',0,'2019-07-20 19:31:42','2019-07-20 19:31:42'),(5,1,0,'title','G:\\tmp\\1564249293295.txt',0,'2019-07-28 02:41:33','2019-08-04 10:51:46'),(6,1,0,'test6','G:\\tmp\\1564281369693.txt',0,'2019-07-28 11:36:18','2019-08-04 10:51:50'),(7,1,0,'sample1','G:\\tmp\\1564882910047.txt',0,'2019-08-04 10:41:50','2019-08-04 10:51:55'),(8,1,0,'sample2','G:	mp1567176284674.txt',0,'2019-08-30 23:44:45','2019-08-30 23:44:45'),(9,1,0,'削除用ファイル','/usr/tomcat9/Data/1567179029547.txt',0,'2019-08-31 00:30:29','2019-08-31 00:30:29'),(10,1,0,'insertテスト','G:	mp1567242376714.txt',0,'2019-08-31 18:06:18','2019-08-31 18:06:18'),(11,1,0,'削除用ファイル2','G:	mp1567242804986.txt',0,'2019-08-31 18:13:26','2019-08-31 18:13:26'),(12,1,0,'テスト投稿','G:	mp1568596501777.txt',0,'2019-09-16 10:15:11','2019-09-16 10:15:11'),(13,1,0,'テスト投稿2','G:	mp1568597209442.txt',0,'2019-09-16 10:26:51','2019-09-16 10:26:51'),(14,1,0,'テスト','G:	mp1568599196253.txt',0,'2019-09-16 10:59:57','2019-09-16 10:59:57'),(15,1,0,'','G:	mp1568599820634.txt',0,'2019-09-16 11:10:22','2019-09-16 11:10:22'),(16,1,0,'テスト13','G:	mp1568615529537.txt',0,'2019-09-16 15:32:11','2019-09-16 15:32:11'),(17,1,0,'postメソッドテスト2','G:	mp1568617083132.txt',0,'2019-09-16 15:58:04','2019-09-16 15:58:04'),(18,1,0,'テスト13','G:	mp1568619862248.txt',0,'2019-09-16 16:44:25','2019-09-16 16:44:25'),(19,1,0,'テスト13','G:	mp1568619996240.txt',0,'2019-09-16 16:46:38','2019-09-16 16:46:38'),(20,1,0,'テスト14','G:	mp1568620012867.txt',0,'2019-09-16 16:46:54','2019-09-16 16:46:54'),(21,1,0,'テスト15','G:	mp1568620278587.txt',0,'2019-09-16 16:51:20','2019-09-16 16:51:20'),(22,1,0,'テスト16','G:	mp1568620357927.txt',0,'2019-09-16 16:52:39','2019-09-16 16:52:39'),(23,1,0,'テスト17','G:	mp1568620493371.txt',0,'2019-09-16 16:54:55','2019-09-16 16:54:55'),(24,1,0,'テスト17','G:	mp1568620832522.txt',0,'2019-09-16 17:00:34','2019-09-16 17:00:34');
+/*!40000 ALTER TABLE `article_list` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `comment_list`
+--
+
+DROP TABLE IF EXISTS `comment_list`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `comment_list` (
+  `id` int(255) NOT NULL AUTO_INCREMENT,
+  `article_id` int(11) DEFAULT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `approval` int(11) DEFAULT '0',
+  `title` varchar(255) DEFAULT NULL,
+  `comment` varchar(255) DEFAULT NULL,
+  `delete_flag` int(11) DEFAULT '0',
+  `upload` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `comment_list`
+--
+
+LOCK TABLES `comment_list` WRITE;
+/*!40000 ALTER TABLE `comment_list` DISABLE KEYS */;
+INSERT INTO `comment_list` VALUES (1,7,1,1,'null','初めてのコメント',0,'2019-09-22 19:07:15'),(2,7,1,1,'null','2つ目のコメント',0,'2019-09-22 19:08:41'),(3,7,1,1,'コメントテスト','3つ目のコメント',0,'2019-09-22 19:09:52'),(4,7,1,1,'コメントテスト','4つ目のコメント',0,'2019-09-22 19:29:00');
+/*!40000 ALTER TABLE `comment_list` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2019-11-16 12:31:57
