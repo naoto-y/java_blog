@@ -27,7 +27,6 @@ public class ArticlesList extends HttpServlet {
             out.println("</head>");
             out.println("<body>");
 
-            out.println(articles.size());
             for(int n = 0; n < articles.size(); n++) {
                 out.println("<p>");
                 out.println("<a href=\"./article?id=" + articles.get(n).getId() + "\">");
