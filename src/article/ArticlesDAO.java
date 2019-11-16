@@ -70,8 +70,8 @@ public class ArticlesDAO {
 			articlesDTO.setUser_id(rset.getInt("user_id"));
 			articlesDTO.setTitle(rset.getString("title"));
 			articlesDTO.setArticle_path(rset.getString("article_path"));
-			articlesDTO.setUpload(rset.getDate("upload"));
-			articlesDTO.setModify(rset.getDate("modify"));
+//			articlesDTO.setUpload(rset.getDate("upload"));
+//			articlesDTO.setModify(rset.getDate("modify"));
 		} catch(SQLException e) {
 			e.printStackTrace();
 		}
